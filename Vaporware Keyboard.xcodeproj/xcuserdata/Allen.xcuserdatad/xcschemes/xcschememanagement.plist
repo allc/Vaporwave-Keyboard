@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Vaporware.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>9FE9E6271EE06EF9003E3918</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FE9E6401EE06F4B003E3918</key>
 		<dict>
 			<key>primary</key>
 			<true/>

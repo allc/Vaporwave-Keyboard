@@ -12,7 +12,33 @@
 		9FE9E6311EE06EF9003E3918 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE9E62F1EE06EF9003E3918 /* Main.storyboard */; };
 		9FE9E6331EE06EF9003E3918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE9E6321EE06EF9003E3918 /* Assets.xcassets */; };
 		9FE9E6361EE06EF9003E3918 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE9E6341EE06EF9003E3918 /* LaunchScreen.storyboard */; };
+		9FE9E6441EE06F4B003E3918 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9E6431EE06F4B003E3918 /* KeyboardViewController.swift */; };
+		9FE9E6481EE06F4B003E3918 /* Vaporware.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9FE9E6411EE06F4B003E3918 /* Vaporware.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FE9E6461EE06F4B003E3918 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE9E6201EE06EF9003E3918 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE9E6401EE06F4B003E3918;
+			remoteInfo = Vaporware;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9FE9E64C1EE06F4B003E3918 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9FE9E6481EE06F4B003E3918 /* Vaporware.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9FE9E6281EE06EF9003E3918 /* Vaporware Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vaporware Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +48,20 @@
 		9FE9E6321EE06EF9003E3918 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE9E6351EE06EF9003E3918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FE9E6371EE06EF9003E3918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE9E6411EE06F4B003E3918 /* Vaporware.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Vaporware.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE9E6431EE06F4B003E3918 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		9FE9E6451EE06F4B003E3918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9FE9E6251EE06EF9003E3918 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE9E63E1EE06F4B003E3918 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				9FE9E62A1EE06EF9003E3918 /* Vaporware Keyboard */,
+				9FE9E6421EE06F4B003E3918 /* Vaporware */,
 				9FE9E6291EE06EF9003E3918 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				9FE9E6281EE06EF9003E3918 /* Vaporware Keyboard.app */,
+				9FE9E6411EE06F4B003E3918 /* Vaporware.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +102,15 @@
 			path = "Vaporware Keyboard";
 			sourceTree = "<group>";
 		};
+		9FE9E6421EE06F4B003E3918 /* Vaporware */ = {
+			isa = PBXGroup;
+			children = (
+				9FE9E6431EE06F4B003E3918 /* KeyboardViewController.swift */,
+				9FE9E6451EE06F4B003E3918 /* Info.plist */,
+			);
+			path = Vaporware;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +121,34 @@
 				9FE9E6241EE06EF9003E3918 /* Sources */,
 				9FE9E6251EE06EF9003E3918 /* Frameworks */,
 				9FE9E6261EE06EF9003E3918 /* Resources */,
+				9FE9E64C1EE06F4B003E3918 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9FE9E6471EE06F4B003E3918 /* PBXTargetDependency */,
 			);
 			name = "Vaporware Keyboard";
 			productName = "Vaporware Keyboard";
 			productReference = 9FE9E6281EE06EF9003E3918 /* Vaporware Keyboard.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9FE9E6401EE06F4B003E3918 /* Vaporware */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE9E6491EE06F4B003E3918 /* Build configuration list for PBXNativeTarget "Vaporware" */;
+			buildPhases = (
+				9FE9E63D1EE06F4B003E3918 /* Sources */,
+				9FE9E63E1EE06F4B003E3918 /* Frameworks */,
+				9FE9E63F1EE06F4B003E3918 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vaporware;
+			productName = Vaporware;
+			productReference = 9FE9E6411EE06F4B003E3918 /* Vaporware.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +164,16 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 8R3W9WZNHD;
 						ProvisioningStyle = Automatic;
+					};
+					9FE9E6401EE06F4B003E3918 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8R3W9WZNHD;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -115,6 +191,7 @@
 			projectRoot = "";
 			targets = (
 				9FE9E6271EE06EF9003E3918 /* Vaporware Keyboard */,
+				9FE9E6401EE06F4B003E3918 /* Vaporware */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +207,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FE9E63F1EE06F4B003E3918 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -142,7 +226,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FE9E63D1EE06F4B003E3918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE9E6441EE06F4B003E3918 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FE9E6471EE06F4B003E3918 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE9E6401EE06F4B003E3918 /* Vaporware */;
+			targetProxy = 9FE9E6461EE06F4B003E3918 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9FE9E62F1EE06EF9003E3918 /* Main.storyboard */ = {
@@ -262,9 +362,11 @@
 		9FE9E63B1EE06EF9003E3918 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R3W9WZNHD;
 				INFOPLIST_FILE = "Vaporware Keyboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cjxol.Vaporware-Keyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,12 +377,42 @@
 		9FE9E63C1EE06EF9003E3918 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R3W9WZNHD;
 				INFOPLIST_FILE = "Vaporware Keyboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cjxol.Vaporware-Keyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		9FE9E64A1EE06F4B003E3918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8R3W9WZNHD;
+				INFOPLIST_FILE = Vaporware/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjxol.Vaporware-Keyboard.Vaporware";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9FE9E64B1EE06F4B003E3918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8R3W9WZNHD;
+				INFOPLIST_FILE = Vaporware/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjxol.Vaporware-Keyboard.Vaporware";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -302,6 +434,14 @@
 			buildConfigurations = (
 				9FE9E63B1EE06EF9003E3918 /* Debug */,
 				9FE9E63C1EE06EF9003E3918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE9E6491EE06F4B003E3918 /* Build configuration list for PBXNativeTarget "Vaporware" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE9E64A1EE06F4B003E3918 /* Debug */,
+				9FE9E64B1EE06F4B003E3918 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
