@@ -35,20 +35,55 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
-        // add keys
-        let buttonTitles = ["ｑ", "ｗ", "ｅ", "ｒ", "ｔ", "ｙ", "ｕ", "ｉ", "ｏ", "ｐ"];
-        var buttons = [UIButton]()
-        let keyboardRowView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        for buttonTitle in buttonTitles {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+        // key titles
+        let firstRowTitles = ["ｑ", "ｗ", "ｅ", "ｒ", "ｔ", "ｙ", "ｕ", "ｉ", "ｏ", "ｐ"]
+        let secondRowTitles = ["ａ", "ｓ", "ｄ", "ｆ", "ｇ", "ｈ", "ｊ", "ｋ", "ｌ"]
+        let thirdRowTitles = ["ｚ", "ｘ", "ｃ", "ｖ", "ｂ", "ｎ", "ｍ"]
+        
+        // add first row
+        var firstRowButtons = [UIButton]()
+        let firstRowView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        firstRowView.translatesAutoresizingMaskIntoConstraints = false
+        for buttonTitle in firstRowTitles {
             let button = createButtonWithTitle(title: buttonTitle)
-            buttons.append(button)
-            keyboardRowView.addSubview(button)
+            firstRowButtons.append(button)
+            firstRowView.addSubview(button)
         }
-        self.view.addSubview(keyboardRowView)
+        addIndividualButtonConstraints(buttons: firstRowButtons, mainView: firstRowView)
+        self.view.addSubview(firstRowView)
         
-        addIndividualButtonConstraints(buttons: buttons, mainView: keyboardRowView)
+        // add second row
+        var secondRowButtons = [UIButton]()
+        let secondRowView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        secondRowView.translatesAutoresizingMaskIntoConstraints = false
+        for buttonTitle in secondRowTitles {
+            let button = createButtonWithTitle(title: buttonTitle)
+            secondRowButtons.append(button)
+            secondRowView.addSubview(button)
+        }
+        addIndividualButtonConstraints(buttons: secondRowButtons, mainView: secondRowView)
+        self.view.addSubview(secondRowView)
         
-        //addConstraintsToInputView(inputView: self.view, rowViews: [keyboardRowView])
+        // add third row
+        var thirdRowButtons = [UIButton]()
+        let thirdRowView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        thirdRowView.translatesAutoresizingMaskIntoConstraints = false
+        for buttonTitle in thirdRowTitles {
+            let button = createButtonWithTitle(title: buttonTitle)
+            thirdRowButtons.append(button)
+            thirdRowView.addSubview(button)
+        }
+        addIndividualButtonConstraints(buttons: thirdRowButtons, mainView: thirdRowView)
+        self.view.addSubview(thirdRowView)
+
+        
+        addConstraintsToInputView(inputView: self.view, rowViews: [firstRowView, secondRowView, thirdRowView])
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,7 +110,7 @@ class KeyboardViewController: UIInputViewController {
     
     func createButtonWithTitle(title: String) -> UIButton {
         let button = UIButton(type: .system)
-        button.frame = CGRect(x: 30, y: 0, width: 20, height: 20)
+        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         button.setTitle(title, for: .normal)
         button.sizeToFit()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -109,6 +144,7 @@ class KeyboardViewController: UIInputViewController {
                 
                 let nextButton = buttons[index+1]
                 rightConstraint = NSLayoutConstraint(item: button, attribute: .right, relatedBy: .equal, toItem: nextButton, attribute: .left, multiplier: 1.0, constant: -1)
+                
             }
             
             
@@ -136,9 +172,9 @@ class KeyboardViewController: UIInputViewController {
     func addConstraintsToInputView(inputView: UIView, rowViews: [UIView]){
         
         for (index, rowView) in rowViews.enumerated() {
-            let rightSideConstraint = NSLayoutConstraint(item: rowView, attribute: .right, relatedBy: .equal, toItem: inputView, attribute: .right, multiplier: 1.0, constant: -1)
+            let rightSideConstraint = NSLayoutConstraint(item: rowView, attribute: .right, relatedBy: .equal, toItem: inputView, attribute: .right, multiplier: 1.0, constant: 0)
             
-            let leftConstraint = NSLayoutConstraint(item: rowView, attribute: .left, relatedBy: .equal, toItem: inputView, attribute: .left, multiplier: 1.0, constant: 1)
+            let leftConstraint = NSLayoutConstraint(item: rowView, attribute: .left, relatedBy: .equal, toItem: inputView, attribute: .left, multiplier: 1.0, constant: 0)
             
             inputView.addConstraints([leftConstraint, rightSideConstraint])
             
@@ -146,7 +182,8 @@ class KeyboardViewController: UIInputViewController {
             
             if index == 0 {
                 topConstraint = NSLayoutConstraint(item: rowView, attribute: .top, relatedBy: .equal, toItem: inputView, attribute: .top, multiplier: 1.0, constant: 0)
-                
+                //let heightConstraint = NSLayoutConstraint(item: inputView, attribute: .height, relatedBy: .equal, toItem: rowView, attribute: .height, multiplier: 3, constant: 0)
+                //inputView.addConstraint(heightConstraint)
             }else{
                 
                 let prevRow = rowViews[index-1]
@@ -170,7 +207,7 @@ class KeyboardViewController: UIInputViewController {
                 bottomConstraint = NSLayoutConstraint(item: rowView, attribute: .bottom, relatedBy: .equal, toItem: nextRow, attribute: .top, multiplier: 1.0, constant: 0)
             }
             
-            inputView.addConstraint(bottomConstraint)
+            //inputView.addConstraint(bottomConstraint)
         }
         
     }
